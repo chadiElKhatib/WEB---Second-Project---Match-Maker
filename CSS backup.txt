@@ -1,0 +1,267 @@
+:root {
+  --txt: black;
+  --invalid: #e74c3c;
+  --valid: #4caf50;
+  --box-border-color: #000;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 10px;
+}
+
+html,
+body {
+  font-size: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(to bottom, #ffc0cb, #800020);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--txt);
+}
+
+h1 {
+  text-align: center;
+  font-weight: 300;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 100;
+  padding-top: 1px;
+  margin: 10px;
+}
+
+.form {
+  max-width: clamp(350px, 95vw, 1100px);
+  margin: clamp(50px, 3vw, 150px) auto 0;
+  background-color: white;
+  border: 2px solid lightgray;
+  padding: 75px;
+  border-radius: 30px;
+  width: fit-content;
+}
+
+.personal-info {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content 1fr;
+  align-items: center;
+}
+
+.pref {
+  display: grid;
+  grid-template-columns: 200px 1fr 160px 1fr;
+  gap: 14px 18px;
+
+  /* Definér rækker/kolonner med areas */
+  grid-template-areas:
+    "lblInterested      interested     interested      interested"
+    "lblRelationship    relationship   relationship    relationship"
+    "lblAge             age            lblHobbies      hobbies"
+    ".                  .              lblHobbies      hobbies"; /* giver ekstra plads til textarea */
+}
+
+/* Placering i grid’et */
+#lbl-interested {
+  grid-area: lblInterested;
+  align-self: center;
+}
+#interested {
+  grid-area: interested;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+#lbl-relationship {
+  grid-area: lblRelationship;
+  align-self: center;
+}
+#relationship {
+  grid-area: relationship;
+}
+
+#lbl-age {
+  grid-area: lblAge;
+  align-self: center;
+}
+#age {
+  grid-area: age;
+}
+
+#lbl-hobbies {
+  grid-area: lblHobbies;
+  align-self: start;
+}
+#hobbies {
+  grid-area: hobbies;
+  width: 100%;
+}
+
+/* Generel stil (valgfrit) */
+.pref label {
+  justify-self: end;
+  white-space: nowrap;
+}
+.pref input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.pref select,
+.pref textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  font: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.pref select:focus,
+.pref textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #9993;
+}
+
+/* Responsiv: én kolonne på små skærme */
+@media (max-width: 720px) {
+  .pref {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "lblInterested"
+      "interested"
+      "lblRelationship"
+      "relationship"
+      "lblAge"
+      "age"
+      "lblHobbies"
+      "hobbies";
+  }
+  .pref label {
+    justify-self: start;
+  }
+}
+
+input,
+select,
+button,
+textarea {
+  background-color: white;
+  border: 2px solid var(--box-border-color);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  font: inherit;
+  text-align: start;
+  transition: border-color 0.3s;
+}
+input:valid,
+select:valid {
+  border-color: var(--valid);
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: var(--invalid);
+}
+
+input[type="date"]:valid {
+  border-color: var(--valid);
+}
+input[type="date"]:invalid:not(:placeholder-shown) {
+  border-color: var(--box-border-color);
+}
+
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #9993;
+}
+
+.personality-insights {
+  margin-bottom: 20px;
+}
+
+.personality-insights label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.personality-insights textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+select:invalid {
+  border-color: var(--box-border-color);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #999;
+}
+.checkbox-group {
+  border: none;
+  display: inline-block;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #ffc0cb;
+  text-decoration: none;
+  margin: 0 30px;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Mobil: op til 480px*/
+@media screen and (max-width: 480px) {
+  .form {
+    padding: 20px;
+    margin: 10px auto;
+  }
+
+  .form-buttons button {
+    flex: 1 1 100%;
+  }
+}
+
+/* Tbalet: 481 til 1023px */
+@media screen and (min-width: 481px) and (max-width: 1023px) {
+  .form {
+    padding: 0px;
+    max-width: 700px;
+  }
+
+  .form-buttons button {
+    flex: 1 1 50%;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media screen and (min-width: 1024px) {
+  .form {
+    max-width: 900px;
+    padding: 30px;
+  }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dating App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="form">
+    <h1>Match Maker</h1>
+    <h3>Find your spark, your soulmate, your one and only -</h3>
+    <h3>
+      Join Match Maker like thousand others and start your love story today!
+    </h3>
+
+    <form action="/submitregister" method="post">
+      <p><strong>PERSONAL INFORMATION</strong></p>
+      <div class="personal-info">
+        <label for="name">Full name:</label>
+        <input type="text" id="name" placeholder="Full name" required pattern="[A-Za-zÆØQæøå\s\-]+" />
+
+        <label for="email"> E-mail:</label>
+        <input type="email" id="email" placeholder="E-mail" required />
+
+        <label for="birth"> Birth day:</label>
+        <input type="date" id="birth" required min="1925-01-01" max="2010-01-01" />
+
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender" required>
+          <option value="" selected>Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Non-binary</option>
+          <option>Prefer not to say</option>
+        </select>
+
+        <label for="Location">Location:</label>
+        <input type="text" id="Location" name="Location" placeholder="Location" required />
+      </div>
+
+      <p><strong>DATING PREFERENCE</strong></p>
+      <section class="pref">
+        <label id="lbl-interested">Interested in:</label>
+        <div id="interested">
+          <label>
+            <input type="checkbox" name="interest" value="Men" /> Men</label>
+          <label>
+            <input type="checkbox" name="interest" value="Women" />
+            Women</label>
+          <label>
+            <input type="checkbox" name="interest" value="Everyone" />
+            Everyone</label>
+        </div>
+
+        <label id="lbl-relationship" for="relationship">Relation Type:</label>
+        <select name="relationship" id="relationship" required>
+          <option value="">Select</option>
+
+          <optgroup label="💞 Serious / Romantic Relationships">
+            <option>Long-term relationship</option>
+            <option>Boyfriend / Monogamous relationship</option>
+            <option>Looking for something serious</option>
+            <option>Want to find love</option>
+            <option>Open to finding “the one”</option>
+          </optgroup>
+
+          <optgroup label="💫 Casual / Open Relationships">
+            <option>Casual dating</option>
+            <option>Casual, but honest</option>
+            <option>Open to something informal</option>
+            <option>Light and fun — see where it goes</option>
+            <option>Friendship with potential</option>
+          </optgroup>
+
+          <optgroup label="🌈 Alternative or Open Relationship Types">
+            <option>Open relationship</option>
+            <option>Polyamorous</option>
+            <option>Non-monogamous</option>
+            <option>Queer relationships</option>
+            <option>Partnership without labels</option>
+          </optgroup>
+
+          <optgroup label="😄 More Personal / Playful Options">
+            <option>
+              Looking for someone to laugh (and maybe love) with
+            </option>
+            <option>
+              Not sure what I’m looking for — but I’ll know when I find it
+            </option>
+            <option>Anything from coffee to love</option>
+            <option>Seeing where life takes me</option>
+          </optgroup>
+        </select>
+
+        <label id="lbl-age" for="age">Age:</label>
+        <select name="age" id="age" required>
+          <option value="">Select</option>
+          <option>18-25</option>
+          <option>25-30</option>
+          <option>30-35</option>
+          <option>35-40</option>
+          <option>40-45</option>
+          <option>45-50</option>
+          <option>50-55</option>
+          <option>55-60</option>
+          <option>60-65</option>
+          <option>65-70</option>
+        </select>
+
+        <label id="lbl-hobbies" for="hobbies">Hobbies & Interests:</label>
+        <textarea name="hobbies" id="hobbies" rows="3" placeholder="Write here...." minlength="8"></textarea>
+      </section>
+
+      <p><strong>PERSONALITY INSIGHTS</strong></p>
+      <div class="personality-insights">
+        <label for="describe">How do you describe yourself?</label>
+        <textarea id="describe" name="describe" rows="3" placeholder="Tell us about your personality..."></textarea>
+
+        <label for="values">What do you value most in a partner?</label>
+        <textarea id="values" name="values" rows="3" placeholder="Share what matters most to you..."></textarea>
+
+      </div>
+
+      <fieldset class="account-grid">
+        <legend><strong>ACCOUNT SETUP</strong></legend>
+
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" placeholder="Username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="Password" required minlength="8"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).+"
+            title="Password must contain at least one uppercase letter, one lowercase letter, and one special character" />
+        </div>
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password:</label>
+          <input type="password" id="confirm_password" placeholder="Confirm password" required
+            oninput="this.setCustomValidity(this.value !== password.value ? 'Password not matching.' : '')" />
+        </div>
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" required />
+            I agree to the Terms & Conditions and Privacy Policy.
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="form-buttons">
+        <button type="submit">SUBMIT</button>
+        <button type="reset">RESET</button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    Made by Chadi, Søren and Wajiha
+    <p>2025 Match Maker. All rights reserved.</p>
+    <p><a href="privacypolicy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+
+</html>
